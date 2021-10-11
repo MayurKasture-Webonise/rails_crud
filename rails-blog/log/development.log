@@ -3623,3 +3623,433 @@ Processing by Authors::PostsController#index as HTML
 Completed 200 OK in 28ms (Views: 16.5ms | ActiveRecord: 0.8ms | Allocations: 6970)
 
 
+Started GET "/" for ::1 at 2021-10-06 07:20:44 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 525)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 158.8ms | Allocations: 21494)
+Completed 200 OK in 169ms (Views: 161.4ms | ActiveRecord: 0.0ms | Allocations: 28410)
+
+
+Started GET "/posts" for ::1 at 2021-10-06 07:20:47 +0530
+Processing by Authors::PostsController#index as HTML
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms | Allocations: 1388)
+
+
+Started GET "/authors/sign_in" for ::1 at 2021-10-06 07:20:47 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 691)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 3500)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 6899)
+Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 0.8ms | Allocations: 13382)
+
+
+Started GET "/authors/sign_up" for ::1 at 2021-10-06 07:20:51 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 243)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 159)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2166)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 5543)
+Completed 200 OK in 42ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 7993)
+
+
+Started GET "/posts" for ::1 at 2021-10-06 07:20:56 +0530
+Processing by Authors::PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/authors/sign_in" for ::1 at 2021-10-06 07:20:56 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 156)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1025)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4241)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4996)
+
+
+Started POST "/authors/sign_in" for ::1 at 2021-10-06 07:20:58 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "author"=>{"email"=>"mayur.kasture@weboniselab.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["email", "mayur.kasture@weboniselab.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 239ms (ActiveRecord: 0.5ms | Allocations: 5939)
+
+
+Started GET "/posts" for ::1 at 2021-10-06 07:20:58 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 1]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 60.4ms | Allocations: 8129)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 64.4ms | Allocations: 11706)
+Completed 200 OK in 70ms (Views: 65.0ms | ActiveRecord: 0.8ms | Allocations: 17195)
+
+
+Started GET "/posts/new" for ::1 at 2021-10-06 07:21:01 +0530
+Processing by Authors::PostsController#new as HTML
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/new.html.erb within layouts/authors
+  Rendered authors/posts/_form.html.erb (Duration: 10.3ms | Allocations: 4297)
+  Rendered authors/posts/new.html.erb within layouts/authors (Duration: 12.7ms | Allocations: 4717)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 21.6ms | Allocations: 8219)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 0.2ms | Allocations: 11144)
+
+
+Started POST "/posts" for ::1 at 2021-10-06 07:21:07 +0530
+Processing by Authors::PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"webo_news", "description"=>"ff", "published"=>"0", "published_at(1i)"=>"2021", "published_at(2i)"=>"10", "published_at(3i)"=>"6", "published_at(4i)"=>"01", "published_at(5i)"=>"51"}, "commit"=>"Create Post"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors/posts_controller.rb:27:in `create'
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "published", "published_at", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "webo_news"], ["description", "ff"], ["published", 0], ["published_at", "2021-10-06 01:51:00"], ["author_id", 1], ["created_at", "2021-10-06 01:51:07.042534"], ["updated_at", "2021-10-06 01:51:07.042534"]]
+  ↳ app/controllers/authors/posts_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (174.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors/posts_controller.rb:27:in `create'
+Redirected to http://localhost:3000/posts/14
+Completed 302 Found in 201ms (ActiveRecord: 175.9ms | Allocations: 7316)
+
+
+Started GET "/posts/14" for ::1 at 2021-10-06 07:21:07 +0530
+Processing by Authors::PostsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["author_id", 1], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/authors/posts_controller.rb:52:in `set_post'
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/show.html.erb within layouts/authors
+  Rendered authors/posts/show.html.erb within layouts/authors (Duration: 1.2ms | Allocations: 378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 7.4ms | Allocations: 3571)
+Completed 200 OK in 24ms (Views: 8.1ms | ActiveRecord: 0.7ms | Allocations: 6253)
+
+
+Started GET "/posts" for ::1 at 2021-10-06 07:21:08 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 1]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 12.5ms | Allocations: 2403)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 22.2ms | Allocations: 5733)
+Completed 200 OK in 34ms (Views: 23.6ms | ActiveRecord: 0.8ms | Allocations: 7326)
+
+
+Started GET "/" for ::1 at 2021-10-08 12:16:16 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 446)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 7372)
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 11962)
+
+
+Started GET "/posts" for ::1 at 2021-10-08 12:16:24 +0530
+Processing by Authors::PostsController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms | Allocations: 1352)
+
+
+Started GET "/authors/sign_in" for ::1 at 2021-10-08 12:16:24 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 691)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3497)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 6893)
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 0.5ms | Allocations: 13329)
+
+
+Started GET "/authors/sign_up" for ::1 at 2021-10-08 12:16:29 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 243)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 159)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2164)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 5537)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 7771)
+
+
+Started POST "/authors" for ::1 at 2021-10-08 12:17:12 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "author"=>{"email"=>"suraj.m@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."email" = ? LIMIT ?[0m  [["email", "suraj.m@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 667)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 109)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2306)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5614)
+Completed 200 OK in 262ms (Views: 12.3ms | ActiveRecord: 0.3ms | Allocations: 16013)
+
+
+Started POST "/authors" for ::1 at 2021-10-08 12:17:26 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "author"=>{"email"=>"suraj.m@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."email" = ? LIMIT ?[0m  [["email", "suraj.m@gmail.com"], ["LIMIT", 1]]
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "suraj.m@gmail.com"], ["encrypted_password", "$2a$12$qUjccA/AKWI6wIBIlVrBW.oCJsiGhDWWVLc9QPb1oG1RSyVYpH/pa"], ["created_at", "2021-10-08 06:47:26.816395"], ["updated_at", "2021-10-08 06:47:26.816395"]]
+  [1m[36mTRANSACTION (96.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 336ms (ActiveRecord: 96.4ms | Allocations: 7816)
+
+
+Started GET "/posts" for ::1 at 2021-10-08 12:17:26 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 3]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 5.3ms | Allocations: 2783)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 11.0ms | Allocations: 6374)
+Completed 200 OK in 25ms (Views: 12.3ms | ActiveRecord: 0.7ms | Allocations: 11843)
+
+
+Started GET "/posts" for ::1 at 2021-10-08 12:17:30 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 3]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 7.4ms | Allocations: 819)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 23.3ms | Allocations: 4018)
+Completed 200 OK in 36ms (Views: 24.7ms | ActiveRecord: 0.7ms | Allocations: 5729)
+
+
+Started GET "/posts/new" for ::1 at 2021-10-08 12:17:33 +0530
+Processing by Authors::PostsController#new as HTML
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/new.html.erb within layouts/authors
+  Rendered authors/posts/_form.html.erb (Duration: 5.8ms | Allocations: 4390)
+  Rendered authors/posts/new.html.erb within layouts/authors (Duration: 7.3ms | Allocations: 4811)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 12.2ms | Allocations: 8274)
+Completed 200 OK in 37ms (Views: 13.7ms | ActiveRecord: 1.3ms | Allocations: 15042)
+
+
+Started POST "/posts" for ::1 at 2021-10-08 12:17:40 +0530
+Processing by Authors::PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"fdsd", "description"=>"ooo", "published"=>"1", "published_at(1i)"=>"2021", "published_at(2i)"=>"10", "published_at(3i)"=>"8", "published_at(4i)"=>"06", "published_at(5i)"=>"47"}, "commit"=>"Create Post"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors/posts_controller.rb:27:in `create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "published", "published_at", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "fdsd"], ["description", "ooo"], ["published", 1], ["published_at", "2021-10-08 06:47:00"], ["author_id", 3], ["created_at", "2021-10-08 06:47:40.942558"], ["updated_at", "2021-10-08 06:47:40.942558"]]
+  ↳ app/controllers/authors/posts_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (133.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors/posts_controller.rb:27:in `create'
+Redirected to http://localhost:3000/posts/15
+Completed 302 Found in 163ms (ActiveRecord: 134.2ms | Allocations: 6921)
+
+
+Started GET "/posts/15" for ::1 at 2021-10-08 12:17:41 +0530
+Processing by Authors::PostsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["author_id", 3], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/authors/posts_controller.rb:52:in `set_post'
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/show.html.erb within layouts/authors
+  Rendered authors/posts/show.html.erb within layouts/authors (Duration: 1.5ms | Allocations: 399)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 15.4ms | Allocations: 3593)
+Completed 200 OK in 26ms (Views: 16.1ms | ActiveRecord: 0.5ms | Allocations: 6289)
+
+
+Started GET "/posts" for ::1 at 2021-10-08 12:17:45 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 3]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 5.0ms | Allocations: 987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 16.7ms | Allocations: 4768)
+Completed 200 OK in 28ms (Views: 18.0ms | ActiveRecord: 0.6ms | Allocations: 6392)
+
+
+Started DELETE "/posts/15" for ::1 at 2021-10-08 12:17:48 +0530
+Processing by Authors::PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"15"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["author_id", 3], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/authors/posts_controller.rb:52:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors/posts_controller.rb:45:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/authors/posts_controller.rb:45:in `destroy'
+  [1m[36mTRANSACTION (57.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors/posts_controller.rb:45:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 84ms (ActiveRecord: 58.8ms | Allocations: 6393)
+
+
+Started GET "/posts" for ::1 at 2021-10-08 12:17:48 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 3]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 8.5ms | Allocations: 906)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 24.8ms | Allocations: 4135)
+Completed 200 OK in 42ms (Views: 27.0ms | ActiveRecord: 0.8ms | Allocations: 5966)
+
+
+Started GET "/" for ::1 at 2021-10-08 12:18:00 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 40)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3242)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 3693)
+
+
+Started GET "/authors/sign_in" for ::1 at 2021-10-08 12:18:02 +0530
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms | Allocations: 1962)
+
+
+Started GET "/" for ::1 at 2021-10-08 12:18:02 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 40)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3244)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 3712)
+
+
+Started GET "/authors/sign_up" for ::1 at 2021-10-08 12:18:05 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.5ms | Allocations: 1446)
+
+
+Started GET "/" for ::1 at 2021-10-08 12:18:05 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 40)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 3245)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 3713)
+
+
+Started GET "/" for ::1 at 2021-10-08 12:18:23 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 449)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 7839)
+Completed 200 OK in 19ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 12275)
+
+
+Started GET "/authors/sign_in" for ::1 at 2021-10-08 12:18:26 +0530
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 29ms (ActiveRecord: 2.4ms | Allocations: 9120)
+
+
+Started GET "/" for ::1 at 2021-10-08 12:18:26 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3384)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 3934)
+
+
+Started GET "/" for 127.0.0.1 at 2021-10-08 12:18:48 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 448)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 8334)
+Completed 200 OK in 18ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 12163)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-10-08 12:18:58 +0530
+Processing by Authors::PostsController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 1352)
+
+
+Started GET "/authors/sign_in" for 127.0.0.1 at 2021-10-08 12:18:58 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 691)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3497)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 6893)
+Completed 200 OK in 20ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 13329)
+
+
+Started POST "/authors/sign_in" for 127.0.0.1 at 2021-10-08 12:19:12 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "author"=>{"email"=>"mayur.kasture@weboniselab.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["email", "mayur.kasture@weboniselab.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 227ms (ActiveRecord: 0.4ms | Allocations: 5923)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-10-08 12:19:12 +0530
+Processing by Authors::PostsController#index as HTML
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? ORDER BY "authors"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/authors.html.erb
+  Rendering authors/posts/index.html.erb within layouts/authors
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 1]]
+  ↳ app/views/authors/posts/index.html.erb:18
+  Rendered authors/posts/index.html.erb within layouts/authors (Duration: 12.2ms | Allocations: 8226)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/authors.html.erb (Duration: 18.5ms | Allocations: 11799)
+Completed 200 OK in 40ms (Views: 19.2ms | ActiveRecord: 1.1ms | Allocations: 17268)
+
+
